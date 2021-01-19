@@ -13,7 +13,7 @@ package com.pyc.CP02;
 
 
 public class ClassInitTest {
-    // 类在初始化时，编译器会自动根据变量声明和赋值语句，生成一个clinit方法
+    // 类在初始化时，编译器会自动根据静态变量声明和赋值语句，生成一个clinit方法
     private static int num = 1;
     static {
         num = 2;
