@@ -75,3 +75,26 @@ java应用的类都由其进行加载；通过ClassLoader#getSystemClassLoader()
 的 loadClass() 方法，但是在 JDK1.2 之后不再建议如此操作，而是建议创建一个findClass()方法，并在该方法中编辑
 自己的类加载逻辑；因此，如果没有复杂的需求，建议直接继承 URLClassLoader 类，从而不用取新建编写findClass()方法
 及其获取字节码流的方式，从而使自定义类加载器编写更加简洁。
+
+## 3、关于 ClassLoader
+
+- ClassLoader 是一个抽象类，其后所有的类加载器都继承于其，除了启动类加载器。
+
+ | 方法名称 | 描述 |
+ |:----|:----|
+ | getParent() | 返回该类加载器的超类加载器 |
+ | loadClass(String name) | 加载名称为 name 的类，返回结果为 java.lang.Class的实例 |
+ | findClass(String name) | 查找名称为 name 的类，返回类型同上 |
+ | findLoadedClass(String name) | 查找名称为 name 的已被加载过的类，返回类型同上 |
+ | defineClass(String name,byte[] b,int off, int len | 把字节数组b中的内容转换为一个Java类，返回结果同上 |
+ | resolveClass(Class<?> c) | 连接指定的一个 Java 类 |
+ 
+- 获取 classLoader的几种途径：
+   
+   1）class.getClassLoader() 获取当前类的加载器；
+   
+   2）Thread.currentThread().getContextClassLoader() 获取当前线程上下文的加载器
+   
+   3）ClassLoader.getSystemClassLoader() 获取系统的类加载器
+   
+   4）DriverManager.getCallerClassLoader() 获取调用者的类加载器
