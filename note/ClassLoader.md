@@ -42,4 +42,24 @@
 - JVM 支持两种类型的类加载器，分别为引导类加载器（ `Bootstrap ClassLoader` ）和自定义类加载器（
 `User-Defined ClassLoader` ）。自定义类加载器在概念上通常指开发人员自定义的一类加载器，但在java
 虚拟机规范中将自定义类加载器表述为 `所有派生于抽象类ClassLoader的类加载器`.
-- 最常见的类加载器，无论如何进行类型划分，主要有三个：
+## 1、JVM 自带的加载器
+### 1.1、启动类加载器
+
+- 又叫引导类加载器，Bootstrap ClassLoader；`该类加载器使用C/C++ 语言实现`，嵌套在 JVM 内部，用于加载
+ Java 的核心库——JAVA_HOME/jre/lid/rt.jar、resources.jar —— 即 JVM 自身需要的类，该类加载器并非是
+ java.lang.ClassLoader 的子类，自身就是顶级类加载器（没有父类加载器）；该类加载器完成的工作包括加载扩展类
+ 和应用程序类加载器并为它们指定父类加载器。
+- 处于安全考虑，bootstrapClassLoader只加载包名为java、javax 等开头的类。
+
+### 1.2、扩展类加载器
+
+- 即 Extension ClassLoader，用 Java 语言开发，由 sun.misc.Launcher$ExtClassLoader 实现，派生自
+ClassLoader，其父类加载器即为启动类加载器。
+- 从 java.ext.dirs 系统属性所指定的目录中加载类库，或从 JDK 的安装目录的 jre/lib/ext 子目录下加载类库，
+若用户创建的 JAR 放在此目录下，也会自动由扩展类加载。
+
+### 1.3、应用程序类加载器
+
+- 也叫系统类加载器，AppClassLoader；也是 java 语言开发，派生于 ClassLoader，父类加载器为扩展类加载器；
+它负责加载环境变量classpath或系统属性属性 java.class.path 指定路径下的类库，是程序中默认的类加载器，通常
+java应用的类都由其进行加载；通过ClassLoader#getSystemClassLoader() 方法可获取该类加载器。
