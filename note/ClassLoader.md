@@ -98,3 +98,13 @@ java应用的类都由其进行加载；通过ClassLoader#getSystemClassLoader()
    3）ClassLoader.getSystemClassLoader() 获取系统的类加载器
    
    4）DriverManager.getCallerClassLoader() 获取调用者的类加载器
+
+# 三、其他
+
+- 在 JVM 中表示两个 class 对象是否为同一个类存在两个必要条件：
+
+   1）类的完整类名完全一致，即包路径加上class类名一样
+
+   2）该类的类加载器相同
+
+- 因此，即便两个类对象来源于同一个Class文件，被同一个虚拟机加载，但只要加载它们的类加载器实例对象不同，则这两个类对象也是不相等的。
