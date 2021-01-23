@@ -10,13 +10,18 @@ package com.pyc.CP3;
  * @time 21:11
  * @E-mail 2923616405@qq.com
  **/
-
+// 快捷键：Surround with：Ctrl+Alt+T
 // 体验栈帧的入栈和出栈
 public class StackFrameTest {
     public static void main(String[] args) {
-        System.out.println("main method start to run");
-        StackFrameTest st = new StackFrameTest();
-        st.method1();
+        try {
+            System.out.println("main method start to run");
+            StackFrameTest st = new StackFrameTest();
+            st.method1();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("main method run stop");
     }
     public void method1(){
@@ -30,7 +35,7 @@ public class StackFrameTest {
         int i =10;
         double m = method3();
         System.out.println("method2() will finish soon ...");
-        return  i + (int)m;
+        return  i + (int)m/0;
     }
 
     private double method3() {
