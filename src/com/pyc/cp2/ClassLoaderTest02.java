@@ -1,4 +1,4 @@
-package com.pyc.CP02;
+package com.pyc.cp2;
 
 import sun.misc.Launcher;
 import sun.security.ec.CurveDB;

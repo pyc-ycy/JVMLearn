@@ -1,4 +1,4 @@
-package com.pyc.CP02;
+package com.pyc.cp2;
 
 import java.io.FileNotFoundException;
 

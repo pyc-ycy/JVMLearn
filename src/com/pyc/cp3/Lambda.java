@@ -1,4 +1,4 @@
-package com.pyc.CP3;
+package com.pyc.cp3;
 
 /**
  * @author 御承扬

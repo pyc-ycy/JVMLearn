@@ -1,4 +1,4 @@
-package com.pyc.CP02;
+package com.pyc.cp2;
 
 /**
  * @author 御承扬

@@ -1,4 +1,4 @@
-package com.pyc.CP3;
+package com.pyc.cp3;
 
 import java.util.Date;
 
