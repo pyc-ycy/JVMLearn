@@ -18,7 +18,7 @@ import java.security.Provider;
  **/
 
 
-public class ClassLoaderTest02 {
+/*public class ClassLoaderTest02 {
     public static void main(String[] args) {
         System.out.println("************启动类加载器***************");
         // 获取 BootstrapClassLoader能够加载的api的路径
@@ -39,4 +39,4 @@ public class ClassLoaderTest02 {
         ClassLoader classLoader1 = CurveDB.class.getClassLoader();
         System.out.println(classLoader1); // sun.misc.Launcher$ExtClassLoader@7ea987ac
     }
-}
+}*/
